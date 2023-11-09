@@ -10,3 +10,44 @@ header {
 .content {
   padding: var(--content-padding);
 }
+
+.example-spacer {
+  display: flex;
+  margin-left: auto;
+  margin-right: 10;
+}
+.menu-button{
+
+}
+
+.textbox{
+  margin-left: 30px;
+  width: 200px;
+  height: 30px;
+  flex-shrink: 0;
+
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.example-container {
+  width: auto;
+}
+
+.example-sidenav {
+  padding: 20px;
+  background: var(--gray400, #8C9294);
+}
+.sidenav{
+  display: flex;
+  flex-flow: column;
+}
+
+.sidenav-menu{
+  padding: 5px;
+}
+
+.toolbar{
+  background: var(--gray400, #8C9294);
+}
