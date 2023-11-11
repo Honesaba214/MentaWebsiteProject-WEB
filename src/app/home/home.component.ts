@@ -12,12 +12,6 @@ import { HousingService } from '../housing.service';
     HousingLocationComponent
   ],
   template: `
-    <section>
-      <form>
-        <input type="text" placeholder="Filter by city" #filter>
-        <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
-      </form>
-    </section>
     <section class="results">
       <app-housing-location
         *ngFor="let housingLocation of filteredLocationList"
