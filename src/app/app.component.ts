@@ -23,32 +23,22 @@ import {NgIf} from '@angular/common';
   template: `
 
     <main>
-      <a [routerLink]="['/']">
       <mat-toolbar class="toolbar">
       <button type="menu-button" mat-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>ECサイト</span>
+      <a [routerLink]="['/']">
+        <span>ECサイト</span>
+      </a>
         <div class="textbox">
-          <input type="text" value="aaaa">
+          <input class="textbox-input" placeholder="text here" type="text">
         </div>
 
       <div class="example-spacer">
-        <div class="menu">
-          <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-            <mat-icon>favorite</mat-icon>
-          </button>
-          <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>User</mat-icon>
-          </button>
-          <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>Cart</mat-icon>
-          </button>
-          <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>More</mat-icon>
-        </button>
+          <button mat-button class="menu-fontsize">User</button>
+          <button mat-button class="menu-fontsize">Cart</button>
+          <button mat-button class="menu-fontsize">More</button>
         </div>
-      </div>
       </mat-toolbar>
 
       <mat-drawer-container class="example-container" autosize>
@@ -75,7 +65,7 @@ import {NgIf} from '@angular/common';
       </mat-drawer-container>
 
 
-    </a>
+
     </main>
   `,
   styleUrls: ['./app.component.css'],
