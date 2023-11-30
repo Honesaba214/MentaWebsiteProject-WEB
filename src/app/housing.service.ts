@@ -8,7 +8,7 @@ import { HousingLocation } from './housinglocation';
 export class HousingService {
 
   //url = 'http://localhost:3000/locations';
-  url = 'http://localhost:3333/api/list';
+  url = 'http://localhost:3333/api';
 
   async getAllHousingLocations(): Promise<HousingLocation[]> {
     const data = await fetch(this.url);
@@ -16,7 +16,8 @@ export class HousingService {
   }
 
   async getHousingLocationById(id: number): Promise<HousingLocation | undefined> {
-    const data = await fetch(`${this.url}/${id}`);
+    //itemNumberでレスポンス取得
+    const data = await fetch(`${this.url}/item/getitem?itemNumber=${id}`);
     return await data.json() ?? {};
   }
 
