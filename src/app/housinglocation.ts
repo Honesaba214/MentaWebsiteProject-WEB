@@ -1,10 +1,42 @@
-export interface HousingLocation {
-  id: number;
-  name: string;
-  city: string;
-  state: string;
-  photo: string;
-  availableUnits: number;
-  wifi: boolean;
-  laundry: boolean;
+export class HousingLocation {
+  private _id=0;
+  private _itemName='';
+  private _itemPrice='';
+  private _photo='';
+
+  constructor(init?: Partial<HousingLocation>) {
+    Object.assign(this, init);
+  }
+
+  get id():number{
+    return this._id;
+  }
+
+  set id(id:number){
+    this._id = id;
+  }
+
+  get itemName():string{
+    return this._itemName;
+  }
+
+  set itemName(itemName:string){
+    this._itemName = itemName;
+  }
+  get itemPrice():string{
+    return this._itemPrice;
+  }
+
+  set itemPrice(itemPrice:string){
+    this._itemPrice = itemPrice;
+  }
+  get photo():string{
+    return this._photo;
+  }
+
+  set photo(photo:string){
+    this._photo = photo;
+  }
 }
+
+

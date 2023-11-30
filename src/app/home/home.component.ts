@@ -31,16 +31,18 @@ export class HomeComponent {
     this.housingService.getAllHousingLocations().then((housingLocationList: HousingLocation[]) => {
       this.housingLocationList = housingLocationList;
       this.filteredLocationList = housingLocationList;
+      this.housingService.testFunction;
     });
   }
 
+  //検索
   filterResults(text: string) {
     if (!text) {
       this.filteredLocationList = this.housingLocationList;
     }
 
     this.filteredLocationList = this.housingLocationList.filter(
-      housingLocation => housingLocation?.city.toLowerCase().includes(text.toLowerCase())
+      housingLocation => housingLocation?.itemName.toLowerCase().includes(text.toLowerCase())
     );
   }
 }
