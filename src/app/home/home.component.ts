@@ -13,9 +13,10 @@ import { HousingService } from '../housing.service';
   ],
   template: `
     <section class="results">
-      <app-housing-location
-        *ngFor="let housingLocation of filteredLocationList"
-        [housingLocation]="housingLocation">
+      <app-housing-location *ngFor="let testFor of filteredLocationList">
+        <p>{{testFor.id}}</p>
+        <p>{{testFor.itemName}}</p>
+        <p>{{testFor.itemPrice}}</p>
       </app-housing-location>
     </section>
   `,
@@ -30,10 +31,20 @@ export class HomeComponent {
 
   constructor() {
     this.housinglocation = new HousingLocation();
+
     this.housingService.getHousingLocationById(1).then((data: HousingLocation) => {
       this.housinglocation = new HousingLocation(data);
       this.housinglocation = data;
+      this.filteredLocationList.push(data);
       /*
+
+      レスポンスで帰ってきたものをリストに格納
+      レスポンスリストを別のリストに格納
+      For文で回す
+
+      thenがなにやっているかわからない
+
+
 
       this.housingLocationList = housingLocationList;
       this.filteredLocationList = housingLocationList;
