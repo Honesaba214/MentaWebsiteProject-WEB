@@ -7,24 +7,20 @@ import { HousingService } from '../housing.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    CommonModule,
-    HousingLocationComponent
-  ],
+  imports: [CommonModule, HousingLocationComponent],
   template: `
     <section class="results">
-      <app-housing-location *ngFor="let testFor of filteredLocationList">
-        <p>{{testFor.id}}</p>
-        <p>{{testFor.itemName}}</p>
-        <p>{{testFor.itemPrice}}</p>
+      <app-housing-location
+        *ngFor="let housingLocation of housingLocationList"
+        [housingLocation]="housingLocation"
+      >
       </app-housing-location>
     </section>
   `,
   styleUrls: ['./home.component.css'],
 })
-
 export class HomeComponent {
-  public housinglocation:HousingLocation;
+  public housinglocation: HousingLocation;
   housingLocationList: HousingLocation[] = [];
   housingService: HousingService = inject(HousingService);
   filteredLocationList: HousingLocation[] = [];
@@ -32,11 +28,13 @@ export class HomeComponent {
   constructor() {
     this.housinglocation = new HousingLocation();
 
-    this.housingService.getHousingLocationById(1).then((data: HousingLocation) => {
-      this.housinglocation = new HousingLocation(data);
-      this.housinglocation = data;
-      this.filteredLocationList.push(data);
-      /*
+    this.housingService
+      .getAllHousingLocations()
+      .then((list: HousingLocation[]) => {
+        for (const data of list) {
+          this.housingLocationList.push(new HousingLocation(data));
+        }
+        /*
 
       レスポンスで帰ってきたものをリストに格納
       レスポンスリストを別のリストに格納
@@ -44,13 +42,11 @@ export class HomeComponent {
 
       thenがなにやっているかわからない
 
-
-
       this.housingLocationList = housingLocationList;
       this.filteredLocationList = housingLocationList;
       this.housingService.testFunction;
       */
-    });
+      });
   }
 
   //検索
@@ -60,7 +56,8 @@ export class HomeComponent {
     }
 
     this.filteredLocationList = this.housingLocationList.filter(
-      housingLocation => housingLocation?.itemName.toLowerCase().includes(text.toLowerCase())
+      (housingLocation) =>
+        housingLocation?.itemName.toLowerCase().includes(text.toLowerCase())
     );
   }
 }
