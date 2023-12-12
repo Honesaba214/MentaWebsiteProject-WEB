@@ -34,18 +34,6 @@ export class HomeComponent {
         for (const data of list) {
           this.housingLocationList.push(new HousingLocation(data));
         }
-        /*
-
-      レスポンスで帰ってきたものをリストに格納
-      レスポンスリストを別のリストに格納
-      For文で回す
-
-      thenがなにやっているかわからない
-
-      this.housingLocationList = housingLocationList;
-      this.filteredLocationList = housingLocationList;
-      this.housingService.testFunction;
-      */
       });
   }
 

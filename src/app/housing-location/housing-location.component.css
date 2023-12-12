@@ -7,6 +7,10 @@
   color: var(--primary-color);
   padding: 10px 20px 0 20px;
 }
+.listing-label {
+  color: var(--primary-color);
+  display: flex;
+}
 .listing-photo {
   height: 250px;
   width: 100%;

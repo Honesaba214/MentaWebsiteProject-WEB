@@ -12,7 +12,9 @@ import { RouterModule } from '@angular/router';
   ],
   template: `
     <section class="listing">
-      <img class="listing-photo" [src]="housingLocation.photo" alt="Exterior photo of {{housingLocation.itemName}}">
+      <img class="listing-photo" [src]="['/assets' + '/' + housingLocation.itemCode + '.jpg']">]
+      <h2 class="listing-label">itemcode: </h2>
+      <h2 class="listing-heading">{{ housingLocation.itemCode }}</h2>
       <h2 class="listing-heading">{{ housingLocation.itemName }}</h2>
       <p class="listing-location">{{ housingLocation.itemPrice}}</p>
       <a [routerLink]="['/details', housingLocation.id]">Learn More</a>

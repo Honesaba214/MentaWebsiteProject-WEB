@@ -2,6 +2,7 @@ export class HousingLocation {
   private _id=0;
   private _itemName='';
   private _itemPrice='';
+  private _itemCode='';
   private _photo='';
 
   constructor(init?: Partial<HousingLocation>) {
@@ -30,6 +31,15 @@ export class HousingLocation {
   set itemPrice(itemPrice:string){
     this._itemPrice = itemPrice;
   }
+
+  get itemCode():string{
+    return this._itemCode;
+  }
+
+  set itemCode(itemCode:string){
+    this._itemCode = itemCode;
+  }
+
   get photo():string{
     return this._photo;
   }
