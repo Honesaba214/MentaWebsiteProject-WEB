@@ -35,16 +35,15 @@ import {NgIf} from '@angular/common';
         </div>
 
       <div class="example-spacer">
-          <button mat-icon-button onclick="location.href='http://google.com'">
+          <button mat-icon-button [routerLink]="['/additem']">
             <mat-icon>add</mat-icon>
           </button>
-          <button mat-icon-button class="material-symbols-outlined">
+          <button mat-icon-button>
             <mat-icon>person</mat-icon>
           </button>
           <button mat-icon-button>
-            <mat-icon></mat-icon>
+            <mat-icon>shopping_cart</mat-icon>
           </button>
-          <button [routerLink]="['/details']">Learn More</button>
         </div>
       </mat-toolbar>
 
