@@ -1,0 +1,18 @@
+.form-main{
+  flex-flow: column;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.file-input {
+  display: none;
+}
+
+.form-submit{
+  padding:20px;
+}
+
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
