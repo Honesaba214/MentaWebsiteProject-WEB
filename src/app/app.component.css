@@ -16,21 +16,21 @@ header {
   margin-left: auto;
   margin-right: 10;
 }
-.menu-fontsize{
+.menu-fontsize {
   font-size: 18px;
 }
 
-.textbox{
+.textbox {
   margin-left: 30px;
   width: 50%;
   height: 65%;
   flex-shrink: 0;
 
   border-radius: 10px;
-  background: #FFF;
+  background: #fff;
 }
 
-.textbox-input{
+.textbox-input {
   border: none;
   outline: none;
   margin-left: 10px;
@@ -41,29 +41,30 @@ header {
 
 .example-container {
   width: auto;
+  height: 100%;
 }
 
 .example-sidenav {
   padding: 20px;
-  background: var(--gray400, #8C9294);
+  background: var(--gray400, #8c9294);
 }
-.sidenav{
+.sidenav {
   display: flex;
   flex-flow: column;
 }
 
-.sidenav-menu{
+.sidenav-menu {
   padding: 5px;
 }
 
-.toolbar{
-  background: var(--gray400, #8C9294);
+.toolbar {
+  background: var(--gray400, #8c9294);
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+main {
+  height: calc(100% - 70px);
 }
