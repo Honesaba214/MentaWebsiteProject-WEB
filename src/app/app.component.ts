@@ -24,7 +24,7 @@ import {NgIf} from '@angular/common';
 
     <main>
       <mat-toolbar class="toolbar">
-      <button type="menu-button" mat-button (click)="drawer.toggle()">
+      <button class="menu-button" type="menu-button" mat-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
       <a [routerLink]="['/']">
@@ -34,7 +34,7 @@ import {NgIf} from '@angular/common';
           <input class="textbox-input" placeholder="text here" type="text">
         </div>
 
-      <div class="example-spacer">
+        <div class="example-spacer">
           <button mat-icon-button [routerLink]="['/additem']">
             <mat-icon>add</mat-icon>
           </button>
@@ -47,31 +47,19 @@ import {NgIf} from '@angular/common';
         </div>
       </mat-toolbar>
 
-      <mat-drawer-container class="example-container" autosize>
-        <mat-drawer #drawer class="example-sidenav" mode="side">
-          <div class="sidenav">
-            <button mat-button class="sidenav-menu">
-              View by Category
-            </button>
-            <button mat-button>
-              Cart
-            </button>
-            <button mat-button>
-              Orders
-            </button>
-            <button mat-button>
-              Contact
-            </button>
-          </div>
-        </mat-drawer>
-
-        <section class="content">
+        <mat-drawer-container class="example-container">
+          <mat-drawer #drawer class="example-sidenav" mode="side">
+            <div class="sidenav">
+              <button mat-button class="sidenav-menu">View by Category</button>
+              <button mat-button>Cart</button>
+              <button mat-button>Orders</button>
+              <button mat-button>Contact</button>
+            </div>
+          </mat-drawer>
+          <section class="content">
           <router-outlet></router-outlet>
-        </section>
-      </mat-drawer-container>
-
-
-
+          </section>
+        </mat-drawer-container>
     </main>
   `,
   styleUrls: ['./app.component.css'],

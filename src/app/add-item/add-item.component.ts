@@ -37,7 +37,7 @@ import {MatButtonModule} from '@angular/material/button';
       </p>
       <p>
         <mat-form-field appearance="fill">
-        <mat-label>Fill form field</mat-label>
+        <mat-label>Photo</mat-label>
         <input matInput>
         <mat-hint>Hint</mat-hint>
         </mat-form-field>

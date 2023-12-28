@@ -41,6 +41,7 @@ header {
 
 .example-container {
   width: auto;
+  height: 100%;
 }
 
 .example-sidenav {
@@ -60,10 +61,18 @@ header {
   background: var(--gray400, #8C9294);
 }
 
+.menu-button{
+  display: flex;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
   'wght' 400,
   'GRAD' 0,
   'opsz' 24
+}
+
+.main{
+  height: calc(100%-70px);
 }
