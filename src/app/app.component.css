@@ -74,5 +74,5 @@ header {
 }
 
 .main{
-  height: calc(100%-70px);
+  height: 100%;
 }

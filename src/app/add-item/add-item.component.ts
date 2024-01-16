@@ -6,13 +6,15 @@ import {MatInputModule} from '@angular/material/input';
 import { HttpClient } from '@angular/common/http';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-item',
   standalone: true,
-  imports: [CommonModule,MatFormFieldModule,MatIconModule,MatInputModule,MatButtonModule, MatDividerModule],
+  imports: [CommonModule,MatFormFieldModule,MatIconModule,MatInputModule,MatButtonModule, MatDividerModule,FormBuilder],
   template: `
 
+  <form [formGroup]="" ngSubmit="Submit()">
     <div class="form-main">
       <p>
         <mat-form-field appearance="fill">
@@ -35,13 +37,6 @@ import {MatButtonModule} from '@angular/material/button';
         <mat-hint>Hint</mat-hint>
         </mat-form-field>
       </p>
-      <p>
-        <mat-form-field appearance="fill">
-        <mat-label>Photo</mat-label>
-        <input matInput>
-        <mat-hint>Hint</mat-hint>
-        </mat-form-field>
-      </p>
       <input type="file" class="file-input"
        (change)="onFileSelected($event)" #fileUpload>
 
@@ -59,6 +54,7 @@ import {MatButtonModule} from '@angular/material/button';
         </div>
       </div>
     <section>
+</form>
   `,
   styleUrls: ['./add-item.component.css']
 })
@@ -83,7 +79,13 @@ export class AddItemComponent {
             //const upload$ = this.http.post("/api/thumbnail-upload", formData);
 
             //upload$.subscribe();
+
+
+
         }
+    }
+    Submit(){
+      //
     }
 
 
@@ -91,5 +93,6 @@ export class AddItemComponent {
 export class Submit{
   constructor(){
       //未実装
+      //submitを押したら
   };
 }
