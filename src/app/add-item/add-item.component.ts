@@ -107,12 +107,16 @@ export class AddItemComponent implements OnInit{
 
     ngOnInit():void{
       this.form = this.formBuilder.group({
-          ItemName : new FormControl(''),
+          ItemName : [''],
           ItemPrice : [''],
+          ItemCode : [''],
       })
+
     }
 
     onSubmit(){
-      this.router.navigate(['https://www.google.com']);
+      console.log(this.form.value)
+
     }
+
 }
