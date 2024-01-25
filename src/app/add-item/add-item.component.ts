@@ -8,6 +8,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { Router } from '@angular/router';
 import { FormBuilder,FormControl,FormGroup,ReactiveFormsModule} from '@angular/forms';
+import { AdditemService } from './add-item.service';
+import { ItemClass } from '../item-class';
 
 
 @Component({
@@ -28,21 +30,21 @@ import { FormBuilder,FormControl,FormGroup,ReactiveFormsModule} from '@angular/f
         <p>
           <mat-form-field appearance="fill">
           <mat-label>ItemName</mat-label>
-          <input matInput formControlName="ItemName">
+          <input matInput formControlName="itemName">
           <mat-hint>Hint</mat-hint>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field appearance="fill">
           <mat-label>ItemPrice</mat-label>
-          <input matInput formControlName="ItemPrice">
+          <input matInput formControlName="itemPrice">
           <mat-hint>Hint</mat-hint>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field appearance="fill">
           <mat-label>ItemCode</mat-label>
-          <input matInput formControlName="ItemCode">
+          <input matInput formControlName="itemCode">
           <mat-hint>Hint</mat-hint>
           </mat-form-field>
         </p>
@@ -78,8 +80,10 @@ export class AddItemComponent implements OnInit{
 
   constructor(
     private formBuilder:FormBuilder,
-    private router: Router
+    private router: Router,
+    private addItemService:AdditemService,
     ){};
+
     fileName = '';
 
     //constructor(private http: HttpClient) {}
@@ -99,6 +103,9 @@ export class AddItemComponent implements OnInit{
             //const upload$ = this.http.post("/api/thumbnail-upload", formData);
 
             //upload$.subscribe();
+            this.form.patchValue({
+              itemPath : this.fileName
+            });
 
 
 
@@ -107,16 +114,29 @@ export class AddItemComponent implements OnInit{
 
     ngOnInit():void{
       this.form = this.formBuilder.group({
-          ItemName : [''],
-          ItemPrice : [''],
-          ItemCode : [''],
+          itemNumber : [''],
+          itemName : [''],
+          itemPrice : [''],
+          itemCode : [''],
+          itemPath : [''],
       })
 
     }
 
     onSubmit(){
-      console.log(this.form.value)
+      console.log(this.form.value);
 
+      this.form.patchValue({
+        itemPath: 'test/test'
+     });
+
+      //onFileSelectedを使いたい　アイテムのパスを取得したい 画像はローカルに保存したい
+
+      this.addItemService.addItem(this.form.value).then((item:ItemClass) => {
+
+      });
+
+      // リターンで帰ってきたあとにitemNumberを用いて画像をアップロードする
     }
 
 }
