@@ -27,6 +27,7 @@ import { ItemClass } from '../item-class';
 
     <div class="form-main">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div formGroupName="basic">
         <p>
           <mat-form-field appearance="fill">
           <mat-label>ItemName</mat-label>
@@ -48,7 +49,9 @@ import { ItemClass } from '../item-class';
           <mat-hint>Hint</mat-hint>
           </mat-form-field>
         </p>
-        <input type="file" class="file-input"
+      </div>
+      <div formGroupName="file">
+        <input type="file" class="file-input" formControlName="file" name="file"
         (change)="onFileSelected($event)" #fileUpload>
 
           <div class="file-upload">
@@ -68,7 +71,7 @@ import { ItemClass } from '../item-class';
           <!-- <div class='form-submit'>
             <button mat-raised-button (click)="onSubmit()">Submit</button>
           </div> -->
-
+      </div>
       </form>
     </div>
 
@@ -114,26 +117,35 @@ export class AddItemComponent implements OnInit{
 
     ngOnInit():void{
       this.form = this.formBuilder.group({
-          itemNumber : [''],
-          itemName : [''],
-          itemPrice : [''],
-          itemCode : [''],
-          itemPath : [''],
+          basic :this.formBuilder.group({
+            itemNumber : [''],
+            itemName : [''],
+            itemPrice : [''],
+            itemCode : [''],
+            itemPath : [''],
+          }),
+          file :this.formBuilder.group({
+            file : [''],
+          }),
+
       })
+
+
 
     }
 
     onSubmit(){
       console.log(this.form.value);
 
-      this.form.patchValue({
-        itemPath: 'test/test'
-     });
 
       //onFileSelectedを使いたい　アイテムのパスを取得したい 画像はローカルに保存したい
 
-      this.addItemService.addItem(this.form.value).then((item:ItemClass) => {
+      this.addItemService.addItem(this.form.get('basic')?.value).then((item:ItemClass) => {
+        console.log("item:" + item)
+        this.addItemService.addItemPath(this.form.get('file')?.value, item.getItemNumber).then((item:ItemClass) => {
+          console.log(item)
 
+        });
       });
 
       // リターンで帰ってきたあとにitemNumberを用いて画像をアップロードする

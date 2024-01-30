@@ -9,7 +9,7 @@ export class ItemClass {
     Object.assign(this, init);
   }
 
-  public get getItem(): number {
+  public get getItemNumber(): number {
     return this.itemNumber;
   }
 

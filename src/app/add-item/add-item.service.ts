@@ -22,7 +22,7 @@ export class AdditemService {
     return (await data.json()) ?? [];
   }
 
-  async addItemPath(body:any): Promise<ItemClass>{
+  async addItemPath(body:any, itemNumber:number): Promise<ItemClass>{
     const method = "POST"
     const headers = {
       //Accept クライアント側がどんなデータが扱えるか
@@ -30,7 +30,7 @@ export class AdditemService {
       'Content-Type': 'multipart/form-date'
     };
 
-    const data = await fetch(this.url + '/item/upload',{method,headers,body});
+    const data = await fetch(this.url + '/item/upload?ItemNumber='+ itemNumber,{method,headers,body});
     console.log(data);
     return (await data.json()) ?? [];
   }
