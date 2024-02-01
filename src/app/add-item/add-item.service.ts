@@ -25,9 +25,7 @@ export class AdditemService {
   async addItemPath(body:any, itemNumber:number): Promise<ItemClass>{
     const method = "POST"
 
-    console.log('itemNumber' + itemNumber);
-    const data = await fetch(this.url + '/item/upload?itemNumber=1' ,{method,body});
-    console.log(data);
+    const data = await fetch(this.url + '/item/upload?itemNumber=' + itemNumber ,{method,body});
     return (await data.json()) ?? [];
   }
 

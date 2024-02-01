@@ -126,11 +126,12 @@ export class AddItemComponent implements OnInit{
 
       //onFileSelectedを使いたい　アイテムのパスを取得したい 画像はローカルに保存したい
 
-      this.addItemService.addItem(this.form.get('basic')?.value).then((item:ItemClass) => {
-        console.log("item:" + item)
+      this.addItemService.addItem(this.form.get('basic')?.value).then((itemDto:ItemClass) => {
+        const item = new ItemClass(itemDto)
         const body = new FormData();
         body.append('file', this.file);
-        this.addItemService.addItemPath(body, 1).then((item:ItemClass) => {
+        const itemNumber = item.getItemNumber;
+        this.addItemService.addItemPath(body, itemNumber).then((item:ItemClass) => {
           console.log(item)
 
         });
