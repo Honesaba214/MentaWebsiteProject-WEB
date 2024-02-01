@@ -80,6 +80,7 @@ import { ItemClass } from '../item-class';
 })
 export class AddItemComponent implements OnInit{
   form!:FormGroup;
+  file!: File;
 
   constructor(
     private formBuilder:FormBuilder,
@@ -92,27 +93,12 @@ export class AddItemComponent implements OnInit{
     //constructor(private http: HttpClient) {}
 
     onFileSelected(event:any) {
+      let reader = new FileReader();
 
-        const file:File = event.target.files[0];
+      if(event.target.files && event.target.files.length) {
+        this.file = event.target.files[0];
+      }
 
-        if (file) {
-
-            this.fileName = file.name;
-
-            const formData = new FormData();
-
-            formData.append("thumbnail", file);
-
-            //const upload$ = this.http.post("/api/thumbnail-upload", formData);
-
-            //upload$.subscribe();
-            this.form.patchValue({
-              itemPath : this.fileName
-            });
-
-
-
-        }
     }
 
     ngOnInit():void{
@@ -142,7 +128,9 @@ export class AddItemComponent implements OnInit{
 
       this.addItemService.addItem(this.form.get('basic')?.value).then((item:ItemClass) => {
         console.log("item:" + item)
-        this.addItemService.addItemPath(this.form.get('file')?.value, item.getItemNumber).then((item:ItemClass) => {
+        const body = new FormData();
+        body.append('file', this.file);
+        this.addItemService.addItemPath(body, 1).then((item:ItemClass) => {
           console.log(item)
 
         });
