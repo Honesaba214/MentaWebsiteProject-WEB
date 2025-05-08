@@ -15,6 +15,10 @@ header {
   flex: 1 1 auto;
 }
 
+.mat-toolbar{
+  color: #791b1b;
+}
+
 .right{
   font-size: 20px;
   display: flex;
@@ -34,6 +38,18 @@ header {
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
+.textbox-input{
+  padding-left: 10px; 
+}
+
 .menu{
   float: right;
+}
+
+.menu-bar-icon{
+  display: flex;
+}
+
+.menu-bar-icon .example-icon{
+  margin-top: 50px;
 }

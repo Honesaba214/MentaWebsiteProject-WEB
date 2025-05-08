@@ -14,14 +14,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
   template: `
     <main>
     <mat-toolbar>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
+      <div class="menu-bar-icon">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
       <div class="right">
         <span>My App</span>
         <span class="example-spacer"></span>
         <div class="textbox">
-          <input type="text" value="aaaa">
+          <input type="text" class="textbox-input">
         </div>
         <div class="menu">
           <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">

@@ -24,14 +24,15 @@ import {NgIf} from '@angular/common';
 
     <main>
       <mat-toolbar class="toolbar">
-      <button class="menu-button" type="menu-button" mat-button (click)="drawer.toggle()">
+      <button mat-button class="menu-button" type="menu-button" (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <a [routerLink]="['/']">
+      <a class = 'topicon' [routerLink]="['/']">
         <span>ECサイト</span>
       </a>
+
         <div class="textbox">
-          <input class="textbox-input" placeholder="text here" type="text">
+          <input class="textbox-input" placeholder=" text here" type="text">
         </div>
 
         <div class="example-spacer">
@@ -44,16 +45,20 @@ import {NgIf} from '@angular/common';
           <button mat-icon-button>
             <mat-icon>shopping_cart</mat-icon>
           </button>
+          <button mat-icon-button>
+            <mat-icon>config</mat-icon>
+          </button>
         </div>
       </mat-toolbar>
 
         <mat-drawer-container class="example-container">
           <mat-drawer #drawer class="example-sidenav" mode="side">
             <div class="sidenav">
-              <button mat-button class="sidenav-menu">View by Category</button>
-              <button mat-button>Cart</button>
-              <button mat-button>Orders</button>
-              <button mat-button>Contact</button>
+              <button mat-button [routerLink]="['/shopping']">ショッピング</button>
+              <button mat-button class="sidenav-menu">企業理念</button>
+              <button mat-button>採用情報</button>
+              <button mat-button>アクセス</button>
+              <button mat-button>お問い合わせ</button>
             </div>
           </mat-drawer>
           <section class="content">
@@ -68,4 +73,9 @@ export class AppComponent {
   title = 'homes';
   showFiller = false;
   test1 = false;
+
+  ngOnInit() : void{
+    console.log('aaaa');
+  }
+
 }

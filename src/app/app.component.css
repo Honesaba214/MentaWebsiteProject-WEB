@@ -21,22 +21,32 @@ header {
 }
 
 .textbox{
-  margin-left: 30px;
-  width: 50%;
+  /* margin-left: 30px;
+  width: 50px;
   height: 65%;
   flex-shrink: 0;
+  position: relative;
 
-  border-radius: 10px;
-  background: #FFF;
+  border-radius: 1px;
+  background: #FFF; */
 }
 
 .textbox-input{
   border: none;
   outline: none;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-right: 10px;
-  width: 95%;
-  height: 70%;
+  width: 100px;
+  height: 40px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.textbox-input:focus {
+  width: 300px;
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  transform: scale(1.05);
 }
 
 .example-container {
@@ -46,7 +56,7 @@ header {
 
 .example-sidenav {
   padding: 20px;
-  background: var(--gray400, #8C9294);
+  background: var(--gray400, #c6dce3);
 }
 .sidenav{
   display: flex;
@@ -58,11 +68,18 @@ header {
 }
 
 .toolbar{
-  background: var(--gray400, #8C9294);
+  /* background: var(--gray400, #c6dce3); */
+  background-color: rgba(255, 255, 255, 0.562);
 }
 
 .menu-button{
-  display: flex;
+  /* display: flex; */
+  width: 30px;
+}
+
+.topicon{
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .material-symbols-outlined {
